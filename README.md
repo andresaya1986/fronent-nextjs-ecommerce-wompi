@@ -53,7 +53,6 @@ Transactions (guardadas en `localStorage` mediante `redux-persist`):
 
 Estas son las mejoras y procesos añadidos al proyecto durante la última iteración:
 
-- **Modal de Pago (`components/PaymentModal.tsx`)**
 	- Se añadió un campo **Teléfono** (`customerPhone`) en el formulario de pago.
 	- Inputs con borde y esquinas redondeadas para mejorar la visibilidad y accesibilidad (`border border-gray-300 rounded`).
 	- Formato de número de tarjeta agrupado de a 4 dígitos mientras el usuario escribe (ej. `4111 1111 1111 1111`).
@@ -61,6 +60,43 @@ Estas son las mejoras y procesos añadidos al proyecto durante la última iterac
 	- Validaciones de tarjeta implementadas: comprobación Luhn, formato de expiración, y CVC.
 	- Flujo de pasos: `form` -> `summary` -> `processing` -> `result` para mejor experiencia de checkout.
 
+## Resultados de tests (ejecutados localmente)
+
+Resumen de la ejecución realizada el 5 de febrero de 2026 en la máquina de desarrollo:
+
+- Unit tests (Jest): 1 passed, 0 failed
+- E2E tests (Playwright template): 1 passed, 0 failed
+
+Logs resumidos:
+
+```
+PASS  tests/PaymentModal.test.tsx
+  ✓ renders payment fields and formats card number in groups of 4
+
+1 passed
+
+Running 1 test using 1 worker
+
+✓  e2e/payment.spec.ts: payment flow (template)
+
+1 passed
+```
+
+Comandos para reproducir localmente:
+
+```bash
+# instalar dependencias (si no lo hiciste)
+npm install
+
+# ejecutar unit tests
+npm run test:unit
+
+# instalar navegadores Playwright (si no lo hiciste)
+npx playwright install
+
+# ejecutar E2E (asegúrate de que http://localhost:3001 esté corriendo)
+npm run test:e2e
+```
 - **Transacciones y estado**
 	- Las transacciones se crean llamando a la API y luego se almacenan en Redux.
 	- Se realiza polling del estado de la transacción hasta que alcanza un estado terminal (por ejemplo `APPROVED`, `DECLINED`, `FAILED`, `CANCELLED`, `EXPIRED`, `ERROR`).

@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.DS_Store
+.env
+.env.local
+.cache
+/.idea
+.vscode
+playwright-report/
+npm-debug.log
+pnpm-lock.yaml
+yarn.lock
