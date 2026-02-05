@@ -53,6 +53,7 @@ Transactions (guardadas en `localStorage` mediante `redux-persist`):
 
 Estas son las mejoras y procesos añadidos al proyecto durante la última iteración:
 
+- **Modal de Pago (`components/PaymentModal.tsx`)**
 	- Se añadió un campo **Teléfono** (`customerPhone`) en el formulario de pago.
 	- Inputs con borde y esquinas redondeadas para mejorar la visibilidad y accesibilidad (`border border-gray-300 rounded`).
 	- Formato de número de tarjeta agrupado de a 4 dígitos mientras el usuario escribe (ej. `4111 1111 1111 1111`).
